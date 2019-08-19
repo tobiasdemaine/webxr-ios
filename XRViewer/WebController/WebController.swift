@@ -537,6 +537,8 @@ class WebController: NSObject, WKUIDelegate, WKNavigationDelegate, WKScriptMessa
         //    [[self barView] setBackEnabled:[[self webView] canGoBack]];
         //    [[self barView] setForwardEnabled:[[self webView] canGoForward]];
     }
+    
+    
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         DDLogError("Web Error - \(error)")
@@ -554,6 +556,18 @@ class WebController: NSObject, WKUIDelegate, WKNavigationDelegate, WKScriptMessa
         barView?.finishLoading(self.webView?.url?.absoluteString)
         barView?.setBackEnabled(self.webView?.canGoBack ?? false)
         barView?.setForwardEnabled(self.webView?.canGoForward ?? false)
+    }
+    
+    func webView(_ webView: WKWebView,
+                 createWebViewWith configuration: WKWebViewConfiguration,
+                 for navigationAction: WKNavigationAction,
+                 windowFeatures: WKWindowFeatures) -> WKWebView? {
+        if navigationAction.targetFrame == nil, let url = navigationAction.request.url, let scheme = url.scheme {
+            //if ["http", "https", "mailto"].contains(where: { $0.caseInsensitiveCompare(scheme) == .orderedSame }) {
+                UIApplication.shared.openURL(url)
+            //}
+        }
+        return nil
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {

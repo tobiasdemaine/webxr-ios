@@ -77,8 +77,8 @@ SPEC CHECKSUMS:
   GCDWebServer: 8d67ee9f634b4bb91eb4b8aee440318a5fc6debd
   MozillaTelemetry: 09a819bd9cc9685c33a1e5fbe846423e770fd5c0
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
-  PopupDialog: 42fb7a0bc4fafdf89fef8b5b2b127a6023f3e1cc
+  PopupDialog: 557e191f121a5ffb6b80e4ae3551e5ace92dacb4
 
 PODFILE CHECKSUM: f33583a62cf7dd682e49aedf1d05a7db43ad61fa
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.5
