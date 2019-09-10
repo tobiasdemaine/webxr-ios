@@ -1,3 +1,3 @@
 #  Modified WebXR IOS Viewer by Mozilla
 
-Modified viewer to ristrict to a domain removed url bar adjust timing
+Modified viewer to restrict to a domain removed url bar etc.
