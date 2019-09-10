@@ -11,7 +11,7 @@ import UIKit
 /// A view controller to handle the settings of the app
 class SettingsViewController: UIViewController {
     let privacyNoticeURL = "https://github.com/mozilla-mobile/webxr-ios/blob/master/PrivacyNotice.md"
-    let viewControllerTitle = "XRViewer"
+    let viewControllerTitle = "Ocular Ink"
     let termsAndConditionsHeaderTitle = "TERMS AND CONDITIONS"
     let generalHeaderTitle = "GENERAL"
     let manageAppPermissionsHeaderTitle = "MANAGE APP PERMISSIONS"
@@ -150,7 +150,7 @@ extension SettingsViewController: UITableViewDataSource {
     
     @objc func switchValueChanged(switchControl: UISwitch) {
         if switchControl.tag == 1 {
-            UserDefaults.standard.set(switchControl.isOn, forKey: Constant.useAnalyticsKey())
+            //UserDefaults.standard.set(switchControl.isOn, forKey: Constant.useAnalyticsKey())
         } else if switchControl.tag == 4 {
             UserDefaults.standard.set(switchControl.isOn, forKey: Constant.alwaysAllowWorldSensingKey())
         } else if switchControl.tag == 5 {

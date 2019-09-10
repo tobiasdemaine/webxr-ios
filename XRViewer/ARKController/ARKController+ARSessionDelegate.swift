@@ -27,10 +27,10 @@ extension ARKController: ARSessionDelegate {
         }
         
         for addedAnchor: ARAnchor in anchors {
-            if addedAnchor is ARFaceAnchor && !(configuration is ARFaceTrackingConfiguration) {
+            /*if addedAnchor is ARFaceAnchor && !(configuration is ARFaceTrackingConfiguration) {
                 print("Trying to add a face anchor to a session configuration that's not ARFaceTrackingConfiguration")
                 continue
-            }
+            }*/
             
             if shouldSend(addedAnchor)
                 || webXRAuthorizationStatus == .worldSensing
@@ -42,7 +42,7 @@ extension ARKController: ARSessionDelegate {
             // utilize any recognized ARFaceAnchors nor, potentially, ARImageAnchors.
             // Tony: Spoke with Blair briefly about this 2/4/19, allowing ARFaceAnchors
             //       but not ARImageAnchors
-                || (webXRAuthorizationStatus == .lite && addedAnchor is ARFaceAnchor)
+            //    || (webXRAuthorizationStatus == .lite && addedAnchor is ARFaceAnchor)
             {
                 
                 let addedAnchorDictionary = createDictionary(for: addedAnchor)
@@ -72,10 +72,10 @@ extension ARKController: ARSessionDelegate {
         //DDLogDebug(@"Update Anchors - %@", [anchors debugDescription]);
         //DDLogDebug(@"Update Anchors - %lu", anchors.count);
         for updatedAnchor: ARAnchor in anchors {
-            if updatedAnchor is ARFaceAnchor && !(configuration is ARFaceTrackingConfiguration) {
+            /*if updatedAnchor is ARFaceAnchor && !(configuration is ARFaceTrackingConfiguration) {
                 print("Trying to update a face anchor in a session configuration that's not ARFaceTrackingConfiguration")
                 continue
-            }
+            }*/
             
             updateDictionary(for: updatedAnchor)
         }

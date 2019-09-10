@@ -100,11 +100,10 @@
      @param completion a completion block acting a promise
      */
     func activateDetectionImage(_ imageName: String?, completion: @escaping ActivateDetectionImageCompletionBlock) {
-        if configuration is ARFaceTrackingConfiguration {
+        /*if configuration is ARFaceTrackingConfiguration {
             completion(false, "Cannot activate a detection image when using the front facing camera", nil)
             return
-        }
-        
+        }*/
         let worldTrackingConfiguration = configuration as? ARWorldTrackingConfiguration
         if let referenceImage = referenceImageMap[imageName ?? ""] as? ARReferenceImage {
             var currentDetectionImages = worldTrackingConfiguration?.detectionImages != nil ? worldTrackingConfiguration?.detectionImages : Set<AnyHashable>()
@@ -165,10 +164,10 @@
      @param completion The promise that will be called with the outcome of the deactivation
      */
     func deactivateDetectionImage(_ imageName: String, completion: DetectionImageCreatedCompletionType) {
-        if configuration is ARFaceTrackingConfiguration {
+        /*if configuration is ARFaceTrackingConfiguration {
             completion(false, "Cannot deactivate a detection image when using the front facing camera")
             return
-        }
+        }*/
         
         let worldTrackingConfiguration = configuration as? ARWorldTrackingConfiguration
         let referenceImage = referenceImageMap[imageName] as? ARReferenceImage

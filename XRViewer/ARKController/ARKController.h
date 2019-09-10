@@ -109,7 +109,7 @@ typedef void (^ResultArrayBlock)(NSArray *);
 @property(nonatomic, strong) NSMutableDictionary* referenceImageMap;
 /// Dictionary holding completion blocks by image name
 @property(nonatomic, strong) NSMutableDictionary* detectionImageActivationPromises;
-- (void)updateFaceAnchorData:(ARFaceAnchor *)faceAnchor toDictionary:(NSMutableDictionary *)faceAnchorDictionary;
+//- (void)updateFaceAnchorData:(ARFaceAnchor *)faceAnchor toDictionary:(NSMutableDictionary *)faceAnchorDictionary;
 /// Array of anchor dictionaries that were added since the last frame.
 /// Contains the initial data of the anchor when it was added.
 @property (nonatomic, strong) NSMutableArray *addedAnchorsSinceLastFrame;

@@ -52,11 +52,11 @@
             session.remove(anchor: anchor)
         }
         
-        if !(configuration is ARFaceTrackingConfiguration) {
+        /*if !(configuration is ARFaceTrackingConfiguration) {
             let faceTrackingConfiguration = ARFaceTrackingConfiguration()
             configuration = faceTrackingConfiguration
             runSession(with: state)
-        } else {
+        } else {*/
             let worldTrackingConfiguration = ARWorldTrackingConfiguration()
             worldTrackingConfiguration.planeDetection = [.horizontal, .vertical]
             
@@ -71,12 +71,12 @@
             worldTrackingConfiguration.detectionImages = newDetectionImages
             configuration = worldTrackingConfiguration
             runSession(with: state)
-        }
+      //  }
     }
     
     // MARK: - Helpers
     
     class func supportsARFaceTrackingConfiguration() -> Bool {
-        return ARFaceTrackingConfiguration.isSupported
+        return false; //ARFaceTrackingConfiguration.isSupported
     }
 }

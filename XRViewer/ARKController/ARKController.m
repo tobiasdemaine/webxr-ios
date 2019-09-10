@@ -184,7 +184,7 @@
 }
 
 #pragma mark Private
-
+/*
 - (void)updateFaceAnchorData:(ARFaceAnchor *)faceAnchor toDictionary:(NSMutableDictionary *)faceAnchorDictionary {
     NSMutableDictionary *geometryDictionary = faceAnchorDictionary[@"geometry"];
     if (!geometryDictionary) {
@@ -214,5 +214,5 @@
     geometryDictionary[@"triangleCount"] = nil;
     geometryDictionary[@"triangleIndices"] = nil;
 }
-
+*/
 @end

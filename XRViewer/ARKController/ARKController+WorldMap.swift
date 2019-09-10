@@ -133,12 +133,12 @@ import Compression
         let completion: GetWorldMapCompletionBlock? = getWorldMapPromise
         getWorldMapPromise = nil
         
-        if configuration is ARFaceTrackingConfiguration {
+        /*if configuration is ARFaceTrackingConfiguration {
             if completion != nil {
                 completion?(false, "Cannot get World Map when using the front facing camera", nil)
             }
             return
-        }
+        }*/
         
         if !trackingStateNormal() {
             if completion != nil {
@@ -356,11 +356,11 @@ import Compression
                 let imageAnchor = anchor as? ARImageAnchor
                 anchorID = imageAnchor?.referenceImage.name ?? "No name stored for this imageAnchor's referenceImage"
                 DDLogWarn("saved WorldMap: contained trackable ImageAnchor")
-            } else if anchor is ARFaceAnchor {
+            } /*else if anchor is ARFaceAnchor {
                 // System generated ARFaceAnchor; probably shouldn't happen!
                 anchorID = anchor.identifier.uuidString
                 DDLogWarn("saved WorldMap: contained trackable FaceAnchor")
-            } else {
+            } */else {
                 anchorID = anchor.name ?? "No name stored for this anchor"
             }
             print("WorldMap contains anchor: \(anchorID)")

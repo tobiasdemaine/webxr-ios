@@ -161,7 +161,7 @@ extension ARKController {
             
             worldTrackingConfiguration?.maximumNumberOfTrackedImages = state.numberOfTrackedImages
 
-        } else if configuration is ARFaceTrackingConfiguration {
+        } /*else if configuration is ARFaceTrackingConfiguration {
             let supportedFormats = ARFaceTrackingConfiguration.supportedVideoFormats
             let faceTrackingConfiguration = configuration as? ARFaceTrackingConfiguration
             if var videoFormat = faceTrackingConfiguration?.videoFormat {
@@ -175,7 +175,7 @@ extension ARKController {
                 }
                 faceTrackingConfiguration?.videoFormat = videoFormat
             }
-        }
+        }*/
         
         if state.aRRequest[WEB_AR_WORLD_ALIGNMENT] as? Bool ?? false {
             configuration?.worldAlignment = .gravityAndHeading

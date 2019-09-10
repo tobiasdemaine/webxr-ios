@@ -14,11 +14,11 @@
         } else if updatedAnchor is ARImageAnchor {
             // User generated ARImageAnchor, do nothing more than updating the transform
             return
-        } else if updatedAnchor is ARFaceAnchor {
+        } /*else if updatedAnchor is ARFaceAnchor {
             // System generated ARFaceAnchor
             guard let faceAnchor = updatedAnchor as? ARFaceAnchor else { return }
             updateFaceAnchorData(faceAnchor, to: anchorDictionary)
-        } else {
+        }*/ else {
             // Simple, user generated ARAnchor, do nothing more than updating the transform
             return
         }
@@ -42,13 +42,13 @@
             arkitGeneratedAnchorIDUserAnchorIDMap[addedAnchor.identifier.uuidString] = addedImageAnchor?.referenceImage.name
             anchorDictionary[WEB_AR_UUID_OPTION] = addedImageAnchor?.referenceImage.name
             anchorDictionary[WEB_AR_ANCHOR_TYPE] = "image"
-        } else if addedAnchor is ARFaceAnchor {
+        }/* else if addedAnchor is ARFaceAnchor {
             // System generated ARFaceAnchor
             guard let faceAnchor = addedAnchor as? ARFaceAnchor else { return anchorDictionary }
             addFaceAnchorData(faceAnchor, toDictionary: anchorDictionary)
             anchorDictionary[WEB_AR_UUID_OPTION] = faceAnchor.identifier.uuidString
             anchorDictionary[WEB_AR_ANCHOR_TYPE] = "face"
-        } else {
+        } */else {
             // Simple, user generated ARAnchor
             let userAnchorID = arkitGeneratedAnchorIDUserAnchorIDMap?[addedAnchor.identifier.uuidString] as? String
             let name = userAnchorID != nil ? userAnchorID : addedAnchor.identifier.uuidString
@@ -87,7 +87,7 @@
 //        geometryDictionary?["triangleIndices"] = nil
 //    }
     
-    func addFaceAnchorData(_ faceAnchor: ARFaceAnchor, toDictionary faceAnchorDictionary: NSMutableDictionary) {
+    /*func addFaceAnchorData(_ faceAnchor: ARFaceAnchor, toDictionary faceAnchorDictionary: NSMutableDictionary) {
         let blendShapesArray = NSMutableArray.init()
         setBlendShapes(faceAnchor.blendShapes as NSDictionary, toArray: blendShapesArray)
         faceAnchorDictionary[WEB_AR_BLEND_SHAPES_OPTION] = blendShapesArray
@@ -95,9 +95,9 @@
         let geometryDictionary = NSMutableDictionary.init()
         addFaceGeometryData(faceAnchor.geometry, toDictionary: geometryDictionary)
         faceAnchorDictionary[WEB_AR_GEOMETRY_OPTION] = geometryDictionary
-    }
+    }*/
     
-    func addFaceGeometryData(_ faceGeometry: ARFaceGeometry, toDictionary geometryDictionary: NSMutableDictionary) {
+    /*func addFaceGeometryData(_ faceGeometry: ARFaceGeometry, toDictionary geometryDictionary: NSMutableDictionary) {
         geometryDictionary["vertexCount"] = faceGeometry.vertices.count
         
         let vertices = NSMutableArray.init(capacity: faceGeometry.vertices.count)
@@ -132,7 +132,8 @@
         }
         geometryDictionary["triangleIndices"] = triangleIndices
     }
-    
+    */
+    /*
     func setBlendShapes(_ blendShapes: NSDictionary, toArray blendShapesArray: NSMutableArray) {
         let blendShapesArray = blendShapesArray
         blendShapesArray[0] = blendShapes[ARFaceAnchor.BlendShapeLocation.browDownLeft] ?? 0
@@ -187,7 +188,7 @@
         blendShapesArray[49] = blendShapes[ARFaceAnchor.BlendShapeLocation.noseSneerLeft] ?? 0
         blendShapesArray[50] = blendShapes[ARFaceAnchor.BlendShapeLocation.noseSneerRight] ?? 0
     }
-    
+    */
     // MARK: - Plane Anchors
     
     func updatePlaneGeometryData(_ planeGeometry: ARPlaneGeometry, toDictionary planeGeometryDictionary: NSMutableDictionary) {
@@ -418,10 +419,10 @@
             // User generated ARImageAnchor
             let imageAnchor = anchor as? ARImageAnchor
             anchorID = imageAnchor?.referenceImage.name ?? ""
-        } else if anchor is ARFaceAnchor {
+        } /*else if anchor is ARFaceAnchor {
             // System generated ARFaceAnchor
             anchorID = anchor.identifier.uuidString
-        } else {
+        } */else {
             // Simple, user generated ARAnchor
             let userAnchorID = arkitGeneratedAnchorIDUserAnchorIDMap?[anchor.identifier.uuidString] as? String
             //        NSString *anchorName = anchor.name;
@@ -483,10 +484,10 @@
         } else if anchor is ARImageAnchor {
             // User generated ARImageAnchor
             shouldSend = false
-        } else if anchor is ARFaceAnchor {
+        } /*else if anchor is ARFaceAnchor {
             shouldSend = false
             // System generated ARFaceAnchor
-        } else {
+        }*/ else {
             // Simple, user generated ARAnchor
             shouldSend = true
         }

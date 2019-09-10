@@ -45,7 +45,7 @@ class BarView: UIView, UITextFieldDelegate {
         forwardBtn.setImage(UIImage(named: "forward"), for: .disabled)
         backBtn.isEnabled = false
         forwardBtn.isEnabled = false
-
+       
         urlField.delegate = self
 
         let permissionButton = ActivityIndicatorButton(type: .custom)
@@ -65,7 +65,8 @@ class BarView: UIView, UITextFieldDelegate {
         urlField.placeholder = "Search or enter website name"
         urlField.layer.cornerRadius = CGFloat(URL_FIELD_HEIGHT / 4)
         urlField.textAlignment = .center
-
+        urlField.isHidden = true
+        
         let reloadButton = UIButton(type: .custom)
         reloadButton.setImage(UIImage(named: "reload"), for: .normal)
         reloadButton.addTarget(self, action: #selector(BarView.reloadAction(_:)), for: .touchUpInside)
